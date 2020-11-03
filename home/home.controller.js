@@ -7,9 +7,9 @@ export class HomeCtrl {
   // Using Vanilla JS to append the DOM element from React,
   // but feel free to use a directive or proper element binding/substitution.
   constructor($scope) {
-    const reactRoot = document.querySelector("#react-app");
+    const reactRoot = document.getElementById("react-app");
 
-    const onChangeName = name => {
+    const onChangeName = (name) => {
       this.name = name;
       // from React to AngularJS
       $scope.$apply();
@@ -18,14 +18,14 @@ export class HomeCtrl {
     // first render
     const reactApp = renderReactApp({
       name: this.name,
-      onChangeName
+      onChangeName,
     });
 
     // attach DOM element that React controls
     reactRoot.appendChild(reactApp);
 
     // from AngularJS to React
-    $scope.$watch("$ctrl.name", name => {
+    $scope.$watch("$ctrl.name", (name) => {
       renderReactApp({ name, onChangeName });
     });
   }

@@ -8,12 +8,12 @@ export const homeModule = "home";
 // AngularJS is weird, global modules and stuff.
 // when this file is imported this "side-effect" executes.
 module(homeModule, [])
-  .config($stateProvider =>
+  .config(($stateProvider) =>
     $stateProvider.state("home", {
       url: "",
       controller: "HomeCtrl",
       controllerAs: "$ctrl",
-      templateUrl: "home/home.html"
+      template: import("./home.html"),
     })
   )
   .controller("HomeCtrl", HomeCtrl);
