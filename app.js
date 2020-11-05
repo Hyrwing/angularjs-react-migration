@@ -1,11 +1,13 @@
 import "@uirouter/angularjs";
-import { bootstrap, module } from "angular";
 
-import { homeModule } from "./home";
+import { angular, bootstrap, module } from "angular";
+
+import { homeModule } from "./angular/home";
+import { aboutModule } from './angular/about';
 import "./style.css";
 
 const myAppsName = "my-angularjs-app";
 
-module(myAppsName, ["ui.router", homeModule]);
+module(myAppsName, ["ui.router", homeModule, aboutModule]);
 
 bootstrap(document.getElementById("angularjs-app"), [myAppsName]);
